@@ -35,11 +35,15 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
 
+    'import_export',
+
     'rest_framework',
     'rest_framework_simplejwt',
 
     'users',
-    'products'
+    'products',
+    'payments',
+    'subscriptions'
 ]
 
 MIDDLEWARE = [
@@ -117,6 +121,7 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 
 STATIC_URL = '/static/'
+STATIC_ROOT = 'static'
 
 #Media Files
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media/')
@@ -139,8 +144,8 @@ REST_FRAMEWORK = {
 
 
 SIMPLE_JWT = {
-    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=120),
-    'REFRESH_TOKEN_LIFETIME': timedelta(days=5),
+    'ACCESS_TOKEN_LIFETIME': timedelta(minutes=5000),
+    'REFRESH_TOKEN_LIFETIME': timedelta(days=100),
     'ROTATE_REFRESH_TOKENS': False,
     'BLACKLIST_AFTER_ROTATION': False,
     'UPDATE_LAST_LOGIN': False,
